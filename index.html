@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Gaurav Gupta!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+        body {
+            font-family: 'DotGothic16', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #1b1f3b, #b368b6); /* Navy Blue Leadership Colors */
+            color: white;
+            padding: 50px;
+            overflow: hidden;
+        }
+
+        .card {
+            background: rgba(255, 215, 0, 0.2); /* Gold Tint */
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            display: inline-block;
+            box-shadow: 0px 4px 15px rgba(255, 215, 0, 0.4); /* Glowing Effect */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 60px;
+            letter-spacing: 2px;
+            color: gold; /* Leadership Color */
+            text-shadow: 3px 3px 15px rgba(255, 215, 0, 0.7);
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: gold;
+            border: none;
+            border-radius: 5px;
+            color: rgb(0, 119, 128);
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            opacity: 0.7;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0px); opacity: 1; }
+            100% { transform: translateY(800px); opacity: 0; }
+        }
+        
+        #countdown {
+            font-size: 20px;
+            margin-top: 15px;
+            color: gold;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body onload="playMusic()">
+    <div class="card">
+        <h1>🎉 Happy Birthday Gaurav Gupta! 🎉</h1>
+        <p>Wishing you a year filled with success, wisdom, and great leadership.</p>
+        <p>May your vision continue to inspire and lead us all to greatness! 🚀</p>
+
+        <!-- AI Personalization -->
+        
+
+        <!-- Countdown -->
+        <div id="countdown"></div>
+    </div>
+
+    <script>
+        // AI Personalization
+        
+
+        // Countdown Timer
+        function countdown() {
+            const birthday = new Date(new Date().getFullYear(), 2, 24); // March 24th
+            const now = new Date();
+            const diff = birthday - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').innerText = "🎉 Today is the big day! Wish Gaurav a Happy Birthday! 🎂";
+                createConfetti();
+            } else {
+                let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById('countdown').innerText = `⏳ ${days} days left until Gaurav's Birthday!`;
+            }
+        }
+
+        countdown();
+
+        // Confetti Effect
+        function createConfetti() {
+            for (let i = 0; i < 100; i++) {
+                let confetti = document.createElement("div");
+                confetti.className = "confetti";
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 80%)`;
+                document.body.appendChild(confetti);
+
+                setTimeout(() => { confetti.remove(); }, 5000);
+            }
+        }
+
+        // Play Original Birthday Song on Load
+        function playMusic() {
+            let audio = new Audio('https://example.com/happy-birthday.mp3'); // Replace with actual song link
+            audio.play();
+        }
+    </script>
+</body>
+</html>
