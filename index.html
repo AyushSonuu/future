@@ -133,10 +133,28 @@
         }
 
         // Play Original Birthday Song on Load
-        function playMusic() {
-            let audio = new Audio('./Good_Morning_to_All(chosic.com).mp3'); // Replace with actual song link
-            audio.play();
-        }
+        // function playMusic() {
+        //     let audio = new Audio('./Good_Morning_to_All(chosic.com).mp3'); // Replace with actual song link
+        //     audio.play();
+        // }
     </script>
+    <script>
+    function playMusic() {
+        let audio = new Audio('./Good_Morning_to_All(chosic.com).mp3'); // Replace with actual song link
+        
+        // Try playing the audio
+        audio.play().catch(error => {
+            console.warn("Autoplay blocked, waiting for mouse hover...", error);
+
+            // Play audio when the user hovers anywhere on the screen
+            document.addEventListener("mouseover", function() {
+                audio.play();
+            }, { once: true }); // Runs only once to prevent multiple triggers
+        });
+    }
+
+    window.onload = playMusic;
+</script>
+
 </body>
 </html>
